@@ -12,9 +12,21 @@
     <script type="text/babel">
       class Principal extends React.Component{
         render() {
-          return (<h2>Hello React Commponent</h2>)
+          return (
+            <div>
+              <h2>Hello React Commponent</h2>
+              <IntroducirTexto/>
+            </div>
+          )
         }
       }
+
+      class IntroducirTexto extends React.Component{
+        render() {
+          return(<h2>Texto desde otro componente</h2>);
+        }
+      }
+
 
       ReactDOM.render(
         <Principal/>,
