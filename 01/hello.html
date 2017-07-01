@@ -11,13 +11,35 @@
     <div id="root"></div>
     <script type="text/babel">
       class Principal extends React.Component{
+        constructor() {
+            super();
+            this.state = {
+                numero : 0
+            };
+        }
+        masUno() {
+            this.setState({
+                numero : this.state.numero + 1
+            });
+        }
         render() {
           return (
              <div>
               <h2>Hello React Commponent</h2>
               <IntroducirTexto/>
+              <AumentarNumero numero={this.state.numero} funAumentar={this.masUno.bind(this)}/>
             </div>
           )
+        }
+      }
+
+      class AumentarNumero extends React.Component{
+        render(){
+            return (
+                <div>                    
+                    <div>{this.props.numero}</div>
+                    <button onClick={this.props.funAumentar}>Aumentar</button>
+                </div>);
         }
       }
 
